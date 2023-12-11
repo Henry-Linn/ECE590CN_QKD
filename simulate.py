@@ -35,9 +35,9 @@ def durationVisibility(ground_station_number, satellite_number):
             y = 0
             z = (R_earth + leo_altitude) * np.sin(theta)
         elif satellite_number == 2: # no x direction
-            x = 0
-            y = (R_earth + leo_altitude) * np.cos(theta)
-            z = (R_earth + leo_altitude) * np.sin(theta)
+            x = (R_earth + leo_altitude) * np.cos(theta+ math.radians(45))
+            y = 0
+            z = (R_earth + leo_altitude) * np.sin(theta + math.radians(45))
         elif satellite_number == 3: # GEO 1
             x = (R_earth + geo_altitude) * np.cos(theta)
             y = (R_earth + geo_altitude) * np.sin(theta)
@@ -95,7 +95,7 @@ def main():
 
 
     ax.scatter3D(ground_station_1["x"], ground_station_1["y"], ground_station_1["z"], c = "green")
-    ax.scatter3D(ground_station_2["x"], ground_station_2["y"], ground_station_2["z"], c = "pink")
+    ax.scatter3D(ground_station_2["x"], ground_station_2["y"], ground_station_2["z"], c = "black")
     # ax.scatter3D(geo_sat_1["x"], geo_sat_1["y"], geo_sat_1["z"], c = "black")
     plt.show()
         
